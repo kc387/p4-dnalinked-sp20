@@ -21,7 +21,8 @@ public class DNABenchmark {
 	
 	/*
 	 * Change these to change the tests to
-	 * use a different type
+	 * use a different type. You will run tests for
+	 * StringStrand, LinkStrand and StringBuilderStrand
 	 */
 //	private static final String strandType = "StringStrand";
 //	private static final String strandType = "LinkStrand";

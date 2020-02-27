@@ -10,7 +10,7 @@ import java.util.Iterator;
  * also added .charAt(int index) and .getInstance() 
  * @date October, 2017, added cutAndSplice here
  * @date October 2018, added codonProfile
- * @date February 2020
+ * @date February 2020, minor updates
  */
 public interface IDnaStrand extends Iterable<Character>{ 
 	/**
