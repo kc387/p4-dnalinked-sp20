@@ -31,7 +31,7 @@ public class LinkStrand implements IDnaStrand {
     public LinkStrand(String s) {
         initialize(s);
     }
-    
+
     @Override
     public long size() {
         return 0;
