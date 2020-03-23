@@ -18,6 +18,28 @@ public class LinkStrand implements IDnaStrand {
     private long mySize;
     private int myAppends;
 
+    public LinkStrand(){
+        this("");
+    }
+    /**
+     * Create a strand representing s. No error checking is done to see if s
+     * represents valid genomic/DNA data.
+     *
+     * @param s
+     *            is the source of cgat data for this strand
+     */
+    public LinkStrand(String s) {
+        initialize(s);
+    }
+
+    /**
+     * Initialize this strand so that it represents the value of source. No
+     * error checking is performed.
+     *
+     * @param source
+     *            is the source of this enzyme
+     */
+
     @Override
     public long size() {
         return 0;
