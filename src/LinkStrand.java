@@ -31,10 +31,13 @@ public class LinkStrand implements IDnaStrand {
     public LinkStrand(String s) {
         initialize(s);
     }
-    
+
+    /**
+     * @return the number of string characters in the LinkStrand
+     */
     @Override
     public long size() {
-        return 0;
+        return mySize;
     }
 
     /**
@@ -43,10 +46,12 @@ public class LinkStrand implements IDnaStrand {
      *
      * @param source is the source of this enzyme
      */
-
     @Override
     public void initialize(String source) {
-
+        myFirst = new Node(source, null);
+        myLast = myFirst;
+        mySize = 1;
+        myAppends = 0;
     }
 
     @Override
