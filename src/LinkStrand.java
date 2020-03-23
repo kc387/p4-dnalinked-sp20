@@ -35,7 +35,7 @@ public class LinkStrand implements IDnaStrand {
     /**
      * @return the number of string characters in the LinkStrand
      */
-    
+
     @Override
     public long size() {
         return mySize;
@@ -72,7 +72,7 @@ public class LinkStrand implements IDnaStrand {
 
     @Override
     public int getAppendCount() {
-        return 0;
+        return myAppends;
     }
 
     @Override
