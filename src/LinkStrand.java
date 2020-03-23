@@ -31,19 +31,18 @@ public class LinkStrand implements IDnaStrand {
     public LinkStrand(String s) {
         initialize(s);
     }
+    
+    @Override
+    public long size() {
+        return 0;
+    }
 
     /**
      * Initialize this strand so that it represents the value of source. No
      * error checking is performed.
      *
-     * @param source
-     *            is the source of this enzyme
+     * @param source is the source of this enzyme
      */
-
-    @Override
-    public long size() {
-        return 0;
-    }
 
     @Override
     public void initialize(String source) {
