@@ -51,7 +51,7 @@ public class LinkStrand implements IDnaStrand {
     public void initialize(String source) {
         myFirst = new Node(source, null);
         myLast = myFirst;
-        mySize = 1;
+        mySize = source.length();
         myAppends = 0;
     }
 
@@ -62,7 +62,10 @@ public class LinkStrand implements IDnaStrand {
 
     @Override
     public IDnaStrand append(String dna) {
-        return null;
+        myLast = new Node(dna, null);
+        mySize = mySize + dna.length();
+        myAppends += 1;
+        return this;
     }
 
     @Override
