@@ -18,9 +18,9 @@ public class LinkStrand implements IDnaStrand {
     private long mySize;
     private int myAppends;
 
-    public LinkStrand(){
+    /*public LinkStrand(){
         this("");
-    }
+    }*/
     /**
      * Create a strand representing s. No error checking is done to see if s
      * represents valid genomic/DNA data.
@@ -30,6 +30,10 @@ public class LinkStrand implements IDnaStrand {
      */
     public LinkStrand(String s) {
         initialize(s);
+    }
+
+    public LinkStrand(){
+        this("");
     }
 
     /**
@@ -62,7 +66,7 @@ public class LinkStrand implements IDnaStrand {
 
     @Override
     public IDnaStrand append(String dna) {
-        myLast = new Node(dna, null);
+        myLast = new Node(dna, myFirst);
         mySize = mySize + dna.length();
         myAppends += 1;
         return this;
