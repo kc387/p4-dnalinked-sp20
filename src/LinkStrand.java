@@ -18,9 +18,10 @@ public class LinkStrand implements IDnaStrand {
     private long mySize;
     private int myAppends;
 
-    /*public LinkStrand(){
+    public LinkStrand(){
         this("");
-    }*/
+    }
+
     /**
      * Create a strand representing s. No error checking is done to see if s
      * represents valid genomic/DNA data.
@@ -30,10 +31,6 @@ public class LinkStrand implements IDnaStrand {
      */
     public LinkStrand(String s) {
         initialize(s);
-    }
-
-    public LinkStrand(){
-        this("");
     }
 
     /**
@@ -75,6 +72,17 @@ public class LinkStrand implements IDnaStrand {
     @Override
     public IDnaStrand reverse() {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder strand = new StringBuilder();
+        int count = 0;
+        while(count <= myAppends){
+            strand.append(myLast.info);
+            count += 1;
+        }
+        return strand.toString();
     }
 
     @Override
