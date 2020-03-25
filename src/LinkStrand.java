@@ -65,8 +65,8 @@ public class LinkStrand implements IDnaStrand {
 
     @Override
     public IDnaStrand append(String dna) {
-        //myCurrent = myLast;
-        myLast = new Node(dna, null);
+        myLast.next = new Node(dna, null);
+        myLast = myLast.next;
         mySize = mySize + dna.length();
         myAppends += 1;
         return this;
@@ -74,21 +74,27 @@ public class LinkStrand implements IDnaStrand {
 
     @Override
     public IDnaStrand reverse() {
-        return null;
+        LinkStrand rev = new LinkStrand(myFirst.info);
+        Node listCurrent = myFirst;
+        Node listRev = rev.myFirst;
+        while(listCurrent != null){
+            StringBuilder copy = new StringBuilder(listCurrent.info);
+            copy.reverse();
+            String reverse = copy.toString();
+            rev.myFirst = new Node(reverse, listRev);
+            listRev = rev.myFirst;
+            listCurrent = listCurrent.next;
+        }
+        return rev;
     }
 
     @Override
     public String toString() {
         StringBuilder strand = new StringBuilder();
-        int count = 0;
-        myCurrent = myFirst;
-        //Node node = myFirst;
-        while(count <= myAppends){
-            strand.append(myCurrent.info);
-            if(myCurrent.next != null){
-                myCurrent = myCurrent.next;
-            }
-            count += 1;
+        Node list = myFirst;
+        while(list != null){
+            strand.append(list.info);
+            list = list.next;
         }
         return strand.toString();
     }
