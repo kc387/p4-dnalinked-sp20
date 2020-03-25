@@ -14,9 +14,9 @@ public class LinkStrand implements IDnaStrand {
         }
     }
 
-    private Node myFirst, myLast;
+    private Node myFirst, myLast, myCurrent;
     private long mySize;
-    private int myAppends;
+    private int myAppends, currentDex, currentCount;
 
     public LinkStrand(){
         this("");
@@ -36,7 +36,6 @@ public class LinkStrand implements IDnaStrand {
     /**
      * @return the number of string characters in the LinkStrand
      */
-
     @Override
     public long size() {
         return mySize;
@@ -54,6 +53,9 @@ public class LinkStrand implements IDnaStrand {
         myLast = myFirst;
         mySize = source.length();
         myAppends = 0;
+        myCurrent = myFirst;
+        currentDex = 0;
+        currentCount = 0;
     }
 
     @Override
