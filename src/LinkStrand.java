@@ -58,6 +58,9 @@ public class LinkStrand implements IDnaStrand {
         myLocalIndex = 0;
     }
 
+    /**
+     * @return the number of string characters in the LinkStrand
+     */
     @Override
     public IDnaStrand getInstance(String source) {
         return new LinkStrand(source);
@@ -74,16 +77,14 @@ public class LinkStrand implements IDnaStrand {
 
     @Override
     public IDnaStrand reverse() {
-        LinkStrand rev = new LinkStrand(myFirst.info);
-        Node listCurrent = myFirst;
-        Node listRev = rev.myFirst;
-        while(listCurrent != null){
-            StringBuilder copy = new StringBuilder(listCurrent.info);
+        LinkStrand rev = new LinkStrand();
+        Node list = myFirst;
+        while(list != null){
+            StringBuilder copy = new StringBuilder(list.info);
             copy.reverse();
             String reverse = copy.toString();
-            rev.myFirst = new Node(reverse, listRev);
-            listRev = rev.myFirst;
-            listCurrent = listCurrent.next;
+            rev.myFirst = new Node(reverse, rev.myFirst);
+            list = list.next;
         }
         return rev;
     }
@@ -106,6 +107,11 @@ public class LinkStrand implements IDnaStrand {
 
     @Override
     public char charAt(int index) {
+        if(index < myIndex){
+            myCurrent = myFirst;
+            myLocalIndex = 0;
+            myIndex = 0;
+        }
         while (myIndex != index) {
             myIndex++;
             myLocalIndex++;
