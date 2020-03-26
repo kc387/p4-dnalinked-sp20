@@ -49,7 +49,7 @@ public class LinkStrand implements IDnaStrand {
      */
     @Override
     public void initialize(String source) {
-        myFirst = new Node(source, myLast);
+        myFirst = new Node(source, null);
         myLast = myFirst;
         mySize = source.length();
         myAppends = 0;
