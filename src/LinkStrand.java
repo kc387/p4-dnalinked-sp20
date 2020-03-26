@@ -38,7 +38,7 @@ public class LinkStrand implements IDnaStrand {
      */
     @Override
     public long size() {
-        return mySize;
+        return this.mySize;
     }
 
     /**
@@ -79,7 +79,6 @@ public class LinkStrand implements IDnaStrand {
     public IDnaStrand reverse() {
         LinkStrand rev = new LinkStrand();
         Node list = myFirst;
-        mySize = mySize;
         while(list != null){
             StringBuilder copy = new StringBuilder(list.info);
             copy.reverse();
