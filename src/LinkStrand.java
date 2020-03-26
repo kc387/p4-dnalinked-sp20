@@ -18,6 +18,9 @@ public class LinkStrand implements IDnaStrand {
     private long mySize;
     private int myAppends, myIndex, myLocalIndex;
 
+    /**
+     * Create an empty strand.
+     */
     public LinkStrand(){
         this("");
     }
@@ -59,13 +62,24 @@ public class LinkStrand implements IDnaStrand {
     }
 
     /**
-     * @return the number of string characters in the LinkStrand
+     * Create a new LinkStrand with a specified source of dna
+     *
+     * @param source is the dna that would be put into the LinkStrand
+     *
+     * @return a new LinkStrand with the dna specified in the parameter
      */
     @Override
     public IDnaStrand getInstance(String source) {
         return new LinkStrand(source);
     }
 
+    /**
+     * Mutates the LinkStrand by adding the dna to the end of the linked list with the original dna as well
+     *
+     * @param dna is the string of characters of dna that is to be added to the end of this strand
+     *
+     * @return the original LinkStrand object with the new dna appended
+     */
     @Override
     public IDnaStrand append(String dna) {
         myLast.next = new Node(dna, null);
@@ -75,6 +89,11 @@ public class LinkStrand implements IDnaStrand {
         return this;
     }
 
+    /**
+     * Mutates the LinkStrand by reversing all the characters and nodes within the LinkStrand
+     *
+     * @return a new LinkStrand with the characters of the original LinkStrand reversed
+     */
     @Override
     public IDnaStrand reverse() {
         LinkStrand rev = new LinkStrand();
@@ -89,6 +108,11 @@ public class LinkStrand implements IDnaStrand {
         return rev;
     }
 
+    /**
+     * Creates a string with the characters from the DNA strand concatenated together
+     *
+     * @return a string with all the characters of the DNA LinkStrand
+     */
     @Override
     public String toString() {
         StringBuilder strand = new StringBuilder();
@@ -101,11 +125,24 @@ public class LinkStrand implements IDnaStrand {
         return strand.toString();
     }
 
+    /**
+     * Used to return the number of times the append method was performed on the LinkStrand object
+     *
+     * @return number of appends performed on the object
+     */
     @Override
     public int getAppendCount() {
         return myAppends;
     }
 
+    /**
+     * Used to return the character at a specific index in the strand and throws an out of bound error if the index
+     * is invalid
+     *
+     * @param index is the index of the character that is desired in the strand
+     *
+     * @return character at the index in the strand
+     */
     @Override
     public char charAt(int index) {
         if(index >= 0 && index < mySize) {
