@@ -108,7 +108,7 @@ public class LinkStrand implements IDnaStrand {
 
     @Override
     public char charAt(int index) {
-        if(index >= 0) {
+        if(index >= 0 && index < mySize) {
             if (index < myIndex) {
                 myCurrent = myFirst;
                 myLocalIndex = 0;
