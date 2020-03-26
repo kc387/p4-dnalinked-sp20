@@ -38,7 +38,7 @@ public class LinkStrand implements IDnaStrand {
      */
     @Override
     public long size() {
-        return this.mySize;
+        return mySize;
     }
 
     /**
@@ -97,6 +97,7 @@ public class LinkStrand implements IDnaStrand {
             strand.append(list.info);
             list = list.next;
         }
+        mySize = strand.toString().length();
         return strand.toString();
     }
 
